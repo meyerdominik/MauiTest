@@ -3,29 +3,45 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiTest.MainPage">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
-            <SwipeView>
-                <SwipeView.LeftItems>
-                    <SwipeItems>
-                        <SwipeItem Text="Favorite"
-                           BackgroundColor="LightGreen"/>
-                        <SwipeItem Text="Delete"
-                           BackgroundColor="LightPink" />
-                    </SwipeItems>
-                </SwipeView.LeftItems>
-
-                <Grid HeightRequest="60"
-                      WidthRequest="300">
-                    <Label Text="Swipe right"
-                            HorizontalOptions="Center"
-                            VerticalOptions="Center" />
-                </Grid>
-
-            </SwipeView>
-        </VerticalStackLayout>
-    </ScrollView>
+    <SwipeView
+            HeightRequest="90"
+            WidthRequest="300"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Margin="12">
+        <SwipeView.RightItems>
+            <SwipeItems
+                Mode="Execute">
+                <SwipeItem
+                  Text="Delete"
+                  BackgroundColor="Red"/>
+            </SwipeItems>
+        </SwipeView.RightItems>
+        <SwipeView.Content>
+            <Grid
+                ColumnDefinitions="Auto, *"
+                RowDefinitions="Auto,Auto,Auto">
+                <Label
+                  Grid.ColumnSpan="2"
+                  HorizontalOptions="Center"
+                  VerticalOptions="Center"
+                  Text="Swipe Left (Execute) NotAnimated"/>
+                <Label
+                    Grid.Row="1"
+                    Text="Maui version:"/>
+                <Label
+                    x:Name="mauiversion"
+                    Grid.Row="1"
+                    Grid.Column="1"/>
+                <Label
+                    Grid.Row="2"
+                    Text="NET version:"/>
+                <Label
+                    x:Name="dotnetversion"
+                    Grid.Row="2"
+                    Grid.Column="1"/>
+            </Grid>
+        </SwipeView.Content>
+    </SwipeView>
 
 </ContentPage>
