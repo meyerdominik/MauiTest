@@ -1,15 +1,21 @@
-﻿namespace MauiTest
+﻿using CommunityToolkit.Maui;
+
+namespace MauiTest
 {
     public partial class MainPage : ContentPage
     {
-        public MainPage()
+        private readonly IPopupService _popupService;
+
+        public MainPage(IPopupService popupService)
         {
+            _popupService = popupService;
+
             InitializeComponent();
         }
 
-        private async void OnCounterClicked(object? sender, EventArgs e)
+        private void OnCounterClicked(object? sender, EventArgs e)
         {
-            
+            _popupService.ShowPopup<PopupContentView>(this);
         }
     }
 }
