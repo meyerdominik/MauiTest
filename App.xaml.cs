@@ -10,8 +10,6 @@ namespace MauiTest
         }
 
         protected override Window CreateWindow(IActivationState? activationState)
-        {
-            return new Window(new AppShell());
-        }
+            => new Window(new RefreshReproShell());
     }
 }
